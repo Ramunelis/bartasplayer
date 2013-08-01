@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>Player Radio Bartas</title>
+    
+    <!-- meta -->
+    <meta name="description" content="Player Radio Bartas">
+    <meta name="author" content="Florestan Bredow">
+
+    <!-- mon icon -->
+    <!--<link rel="shortcut icon" href="favicon.ico">-->
+
+    <!-- mon template.css -->
+    <!--<link rel="stylesheet" href="main.css" type="text/css" media="screen">-->
+    
+    <link type="text/css" href="css/jplayer.blue.monday.css" rel="stylesheet" />
+
+
+</head>
+
+<body>
+
+    <h1>Radio Bartas</h1>
+    <div id="jquery_jplayer_1" class=""></div>
+    <div id="jp_container_1" class="">
+        <div class="jp-type-single">
+            <div class="jp-gui jp-interface">
+                <ul class="jp-controls">
+                    <li><a href="javascript:;" class="jp-play" tabindex="1">play</a></li>
+                    <li><a href="javascript:;" class="jp-pause" tabindex="1">pause</a></li>
+
+                </ul>
+            </div>
+            <div class="jp-no-solution">
+                <span>Update Required</span>
+                To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
+            </div>
+        </div>
+        <p id="NowPlaying">Va se mettre a jour</p>
+    </div>
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery.jplayer.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+
+            var stream = {
+                title: "Radio Bartas",
+                mp3:   "http://stream.franclr.fr:8000/radiobartas"
+            },
+            ready = false;
+
+            $("#jquery_jplayer_1").jPlayer({
+                ready: function (event) {
+                    ready = true;
+                    $(this).jPlayer("setMedia", stream);
+                },
+                pause: function() {
+                    $(this).jPlayer("clearMedia");
+                },
+                error: function(event) {
+                    if(ready && event.jPlayer.error.type === $.jPlayer.error.URL_NOT_SET) {
+                        // Setup the media stream again and play it.
+                        $(this).jPlayer("setMedia", stream).jPlayer("play");
+                    }
+                },
+                swfPath: "swf",
+                supplied: "mp3",
+                preload: "none",
+                wmode: "window", //Pour être sur d'utiliser flash pour le mp3 dans Firefox
+                keyEnabled: true
+            });
+
+            //Affichage du initial titre
+            $.ajax({ 
+                type: "GET",
+                url: "php/streamMeta.php", 
+                success: function(text){
+                    $("#NowPlaying").html(text);
+                }, dataType: "text"});
+
+            //$("#jplayer_inspector").jPlayerInspector({jPlayer:$("#jquery_jplayer_1")});
+
+        });
+        
+        // Met a jour le titre de la chanson toute les 30s
+        (function poll(){
+            setTimeout(function(){
+                $.ajax({ 
+                    type: "GET",
+                    url: "php/streamMeta.php", 
+                    success: function(text){
+                        $("#NowPlaying").html(text);
+                        poll();
+                    }, dataType: "text"});
+            }, 30000);
+        })();
+
+    </script>  
+
+</body>
+</html>
