@@ -20,8 +20,9 @@ $(document).ready(function(){
                         $(this).jPlayer("setMedia", stream).jPlayer("play");
                     }
                 },
-                swfPath: "swf",
+                swfPath: "swf/Jplayer.swf",
                 supplied: "mp3",
+                solution: "flash,html",
                 preload: "none",
                 wmode: "window", //Pour être sur d'utiliser flash pour le mp3 dans Firefox
                 keyEnabled: true
