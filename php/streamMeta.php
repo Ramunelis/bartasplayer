@@ -55,13 +55,13 @@ if ($fp == false) {
 			$result[$temp[0]] = $temp[1];
 	}
 
-	/*echo "<pre>";
+	echo "<pre>";
 	var_dump($result);
-	echo "</pre>";*/
-
-	print($result["Current Song"]);
-
-
+	echo "</pre>";
+	if(isset($result["Current Song"]))
+		print($result["Current Song"]);
+	else
+		print("Pas d'informations.");
 
 }
 
