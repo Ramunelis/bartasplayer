@@ -7,9 +7,9 @@ body{
 }
 
 .player {
-	background: white url("../img/player.png") top left no-repeat;
-	width: 240px;
-	height: 160px;
+	background: white url("../img/player.jpg") top left no-repeat;
+	width: 369px;
+	height: 220px;
 }
 
 div.jp-interface ul.jp-controls {
@@ -40,22 +40,22 @@ div.jp-interface ul.jp-controls a {
 
 a.jp-play,
 a.jp-pause {
-	width:35px;
-	height:35px;
+	width:71px;
+	height:71px;
 }
 
 a.jp-pause {
-	background: url("../img/icons.png") 0 0 no-repeat;
+	background: url("../img/icons.jpg") 0 0 no-repeat;
 }
 a.jp-pause:hover {
-	background: url("../img/icons.png") -35px 0 no-repeat;
+	background: url("../img/icons.jpg") -71px 0 no-repeat;
 }
 a.jp-play {
-	background: url("../img/icons.png") 0 -35px no-repeat;
+	background: url("../img/icons.jpg") 0 -71px no-repeat;
 	display: none;
 }
 a.jp-play:hover {
-	background: url("../img/icons.png") -35px -35px no-repeat;
+	background: url("../img/icons.jpg") -71px -71px no-repeat;
 }
 
 
@@ -63,7 +63,7 @@ div.jp-title {
 	font-weight:bold;
 	text-align:center;
 	width:240px;
-	height: 35px;
+	height: 71px;
 	position: absolute;
 	top: 122px;
 	overflow: hidden;
