@@ -2,8 +2,8 @@
 body{
 	padding: 0px;
 	margin: 0px;
-	width: 240px;
-	height: ;
+	width: 370px;
+	height: 220px;
 }
 
 .player {
@@ -28,8 +28,8 @@ div.jp-video div.jp-type-playlist ul.jp-controls {
 div.jp-interface ul.jp-controls li {
 	display:inline;
 	position: absolute;
-	top: 44px;
-	left: 168px;
+	top: 35px;
+	left: 175px;
 }
 
 div.jp-interface ul.jp-controls a {
@@ -40,22 +40,23 @@ div.jp-interface ul.jp-controls a {
 
 a.jp-play,
 a.jp-pause {
-	width:71px;
-	height:71px;
+	width:89px;
+	height:89px;
 }
 
 a.jp-pause {
-	background: url("../img/icons.jpg") 0 0 no-repeat;
+	background: url("../img/icons.png") 0 0 no-repeat;
 }
 a.jp-pause:hover {
-	background: url("../img/icons.jpg") -71px 0 no-repeat;
+	background: url("../img/icons.png") -89px 0 no-repeat;
+	margin-left: 10px;
 }
 a.jp-play {
-	background: url("../img/icons.jpg") 0 -71px no-repeat;
+	background: url("../img/icons.png") 0 -89px no-repeat;
 	display: none;
 }
 a.jp-play:hover {
-	background: url("../img/icons.jpg") -71px -71px no-repeat;
+	background: url("../img/icons.png") -89px -89px no-repeat;
 }
 
 
