@@ -11,7 +11,7 @@ $title = "Sans Titre";
 
 $fp = fsockopen($url, 8000, $errno, $errstr, 30);
 if ($fp == false) {
-	//echo "$errstr ($errno)";
+	print("flux inacessible.");
 } else {
 
 	fputs($fp, "GET / HTTP/1.1\r\n");
